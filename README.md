@@ -10,3 +10,6 @@ Output: Comparison of the self-consistency method with greedy decoding and other
 Provide metrics like the number of unique reasoning paths, path similarity measures (e.g., cosine similarity), and diversity scores (e.g., Shannon entropy) to assess the diversity of generated reasoning paths.
 ## Projects URL:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vQpP2_goR3xesuV4zWPq5CvvG9vBl_4WqmUQQgkA9PZBFbYMyAmK6F8GA8iNupQEHJWQ_K4QCOwr7bl/pubhtml  
+
+## Overview and Plan of Action:
+https://www.alphaxiv.org/overview/2203.11171
