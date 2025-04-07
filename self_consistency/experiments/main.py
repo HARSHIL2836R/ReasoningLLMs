@@ -2,8 +2,8 @@ from typing import List, Dict
 import numpy as np
 from tqdm import tqdm
 from pathlib import Path
-from src.experiment import ChainOfThoughtExperiment
-from data.problems import load_addsum_examples
+from .src.experiment import ChainOfThoughtExperiment
+from .data.problems import load_addsum_examples
 
 def run_experiments(
     model_names: List[str], 
@@ -61,21 +61,20 @@ def run_experiments(
                             print(f"Finished evaluation for question: {problem['question']}")
 
                                                 
-                            # Store results
-                            results[model_name][temp]['standard'].append(
-                                eval_results['standard_correct']
-                            )
-                            results[model_name][temp]['self_consistency'].append(
-                                eval_results['sc_correct']
-                            )
-                            
-                            print(f"\nQuestion: {problem['question']}")
-                            print(f"Correct answer: {problem['answer']}")
-                            print(f"Model answer: {eval_results['sc_answer']}")
-                            print(f" Paths: {eval_results['sc_paths']}")
-                            print(f"Correct: {eval_results['sc_correct']}")
-                            
-                            pbar.update(1)
+                        # Store results
+                        results[model_name][temp]['standard'].append(
+                            eval_results['standard_correct']
+                        )
+                        results[model_name][temp]['self_consistency'].append(
+                            eval_results['sc_correct']
+                        )
+                        
+                        print(f"\nQuestion: {problem['question']}")
+                        print(f"Correct answer: {problem['answer']}")
+                        print(f"Model answer: {eval_results['sc_answer']}")
+                        print(f"Correct: {eval_results['sc_correct']}")
+                        
+                        pbar.update(1)
                 
         except Exception as e:
             print(f"Error with model {model_name}: {str(e)}")
@@ -85,12 +84,13 @@ def run_experiments(
 
 if __name__ == "__main__":
     # distilbert-base-uncased and so on will not work because its not seq2seq
-    models = ["t5-small"]
+    # models = ["t5-small"]
     # models = ["facebook/opt-1.3b"]
+    models = ["openai-community/gpt2"]
     
     results = run_experiments(
         model_names=models,
-        num_samples=5,
+        num_samples=10,
         temperatures=[0.7],
         offload_folder="model_offload"
     )

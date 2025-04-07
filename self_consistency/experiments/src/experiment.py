@@ -7,8 +7,8 @@ from pathlib import Path
 
 class ChainOfThoughtExperiment:
     def __init__(self, 
-                 model_name: str = "facebook/opt-1.3b",
-                 offload_folder: Optional[str] = None):
+                model_name: str = "facebook/opt-1.3b",
+                offload_folder: Optional[str] = None):
 
         print(f"Loading model: {model_name}")
         
@@ -44,8 +44,7 @@ class ChainOfThoughtExperiment:
 
     def _load_few_shot_examples(self) -> List[Dict[str, str]]:
 
-        # from experiments.data.problems import get_few_shot_examples
-        from data.problems import get_few_shot_examples
+        from experiments.data.problems import get_few_shot_examples
         return get_few_shot_examples()
 
     def generate_cot_prompt(self, question: str) -> str:
@@ -108,8 +107,7 @@ class ChainOfThoughtExperiment:
                          correct_answer: str,
                          num_samples: int = 1) -> Dict:
         #Evaluate a single question using both standard CoT and self-consistency
-        # from experiments.utils.evaluation import (
-        from utils.evaluation import (
+        from experiments.utils.evaluation import (
             extract_final_answer,
             majority_vote,
             check_answer_correctness

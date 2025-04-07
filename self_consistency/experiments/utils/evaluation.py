@@ -20,9 +20,7 @@ def majority_vote(answers: List[str]) -> Optional[str]:
         
     # Convert answers to float for comparison
     float_answers = [float(ans) for ans in valid_answers]
-    # print(f"Float answers: {float_answers}")
 
-    # Grouping answers that are close to each other
     grouped_answers = []
     for ans in float_answers:
         found_group = False
@@ -35,9 +33,7 @@ def majority_vote(answers: List[str]) -> Optional[str]:
             grouped_answers.append([ans])
     
     largest_group = max(grouped_answers, key=len)
-    # print(f"Largest group: {largest_group}")
     modal_answer = sum(largest_group) / len(largest_group)
-    # print(f"Modal answer: {modal_answer}")
     
     return str(int(modal_answer)) if modal_answer.is_integer() else str(modal_answer)
 

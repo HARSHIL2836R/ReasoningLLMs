@@ -17,8 +17,8 @@ def test_extract_final_answer():
     
     assert extract_final_answer("No numbers here") is None
     
-    # text3 = "Therefore, after spending 20 dollars, John has 50 dollars."
-    # assert extract_final_answer(text3) == "50"
+    text3 = "Therefore, after spending 20 dollars, John has 50 dollars."
+    assert extract_final_answer(text3) == "50"
 
 def test_majority_vote():
     # Test majority voting with different scenarios
@@ -26,7 +26,7 @@ def test_majority_vote():
     assert majority_vote(["42", "42", "42"]) == "42"
     
     # Test close numbers
-    # assert majority_vote(["42.1", "42", "42.05"]) == "42.05"
+    assert majority_vote(["42.1", "42", "42.05"]) == "42"
     
     # Test multiple groups
     assert majority_vote(["42", "42", "50", "51"]) == "42"
