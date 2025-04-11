@@ -103,9 +103,9 @@ class ChainOfThoughtExperiment:
         return paths
 
     def evaluate_question(self, 
-                         question: str, 
-                         correct_answer: str,
-                         num_samples: int = 1) -> Dict:
+                            question: str, 
+                            correct_answer: str,
+                            num_samples: int = 1) -> Dict:
         #Evaluate a single question using both standard CoT and self-consistency
         from experiments.utils.evaluation import (
             extract_final_answer,

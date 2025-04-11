@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # distilbert-base-uncased and so on will not work because its not seq2seq
     # models = ["t5-small"]
     # models = ["facebook/opt-1.3b"]
-    models = ["openai-community/gpt2"]
+    models = ["openai-community/gpt2-medium"]
     
     results = run_experiments(
         model_names=models,
