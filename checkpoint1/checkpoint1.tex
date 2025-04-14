@@ -1,0 +1,127 @@
+\documentclass[a4paper,9pt]{article}
+\usepackage{hyperref}
+\usepackage[a4paper,margin=0.7in]{geometry}
+
+\begin{document}
+
+\title{Enhancing Reasoning Path Diversity in Commonsense Question Answering}
+\author{}
+\date{}
+\maketitle
+
+\section*{Dataset Name: CommonsenseQA (CSQA)}
+\noindent
+\textbf{Dataset:} \url{https://paperswithcode.com/dataset/commonsenseqa}
+
+\section*{Paper Title: \\
+Self-Consistency Improves Chain of Thought Reasoning in Language Models}
+\noindent
+\textbf{Paper:} \url{https://arxiv.org/pdf/2203.11171v4}
+
+\section*{Code}
+\noindent
+\textbf{Code Repository:} \url{https://github.com/codelion/optillm/blob/main/optillm/self_consistency.py}
+
+\section*{Input and Output}
+\noindent
+\textbf{Input:} Data, pretrained language models (like BERT, T5). \\
+\textbf{Output:} Comparison of the self-consistency method with greedy decoding and other baseline methods (e.g., beam search) to highlight its advantages.
+
+\section*{Metrics}
+\noindent
+Provide metrics like:
+\begin{itemize}
+    \item Number of unique reasoning paths.
+    \item Path similarity measures (e.g., cosine similarity).
+    \item Diversity scores (e.g., Shannon entropy) to assess the diversity of generated reasoning paths.
+\end{itemize}
+
+\section*{Current Progress}
+
+\subsection*{Literature Review}
+\noindent
+Studied the paper "Self-Consistency Improves Chain of Thought Reasoning in Language Models" to understand the self-consistency method and its advantages over greedy decoding and beam search. \\
+Key insights:
+\begin{itemize}
+    \item Self-consistency improves reasoning diversity by generating multiple reasoning paths and selecting the most consistent answer.
+    \item It enhances performance on commonsense reasoning tasks like CommonsenseQA.
+\end{itemize}
+
+\subsection*{Dataset Preparation}
+\noindent
+\begin{itemize}
+    \item Downloaded and preprocessed the CommonsenseQA dataset.
+    \item Verified the dataset's structure and ensured compatibility with the OptiLLM framework.
+\end{itemize}
+
+\subsection*{Codebase Exploration}
+\noindent
+\begin{itemize}
+    \item Explored the OptiLLM codebase, focusing on the \texttt{self\_consistency.py} module.
+    \item Identified key functions for reasoning path generation and evaluation.
+    \item Reviewed the implementation of metrics like reasoning path diversity and similarity.
+\end{itemize}
+
+\subsection*{Initial Experiments}
+\noindent
+\begin{itemize}
+    \item Ran baseline experiments using greedy decoding and beam search.
+    \item Observed limitations in reasoning diversity and accuracy.
+    \item Implemented the self-consistency method and observed improvements in reasoning diversity.
+\end{itemize}
+
+\section*{Observations}
+\noindent
+\begin{itemize}
+    \item The self-consistency method generates more diverse reasoning paths compared to greedy decoding and beam search.
+    \item Preliminary results indicate higher accuracy and reasoning diversity on the CommonsenseQA dataset.
+    \item Metrics like Shannon entropy and cosine similarity effectively quantify reasoning path diversity.
+\end{itemize}
+
+\section*{Plan of Action}
+
+\subsection*{Short-Term Goals}
+\begin{itemize}
+    \item \textbf{Complete Implementation:}
+    \begin{itemize}
+        \item Finalize the implementation of the self-consistency method in the OptiLLM framework.
+        \item Integrate additional metrics for reasoning path evaluation.
+    \end{itemize}
+    \item \textbf{Run Experiments:}
+    \begin{itemize}
+        \item Conduct experiments on the CommonsenseQA dataset using self-consistency, greedy decoding, and beam search.
+        \item Collect and analyze results for reasoning path diversity and accuracy.
+    \end{itemize}
+    \item \textbf{Documentation:}
+    \begin{itemize}
+        \item Document the implementation details and experimental results.
+        \item Prepare visualizations for metrics like reasoning path diversity and similarity.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Long-Term Goals}
+\begin{itemize}
+    \item \textbf{Optimize the Self-Consistency Method:}
+    \begin{itemize}
+        \item Explore task-specific customizations to prompts for further improvements.
+        \item Experiment with different pretrained language models (e.g., GPT, T5).
+    \end{itemize}
+    \item \textbf{Benchmarking:}
+    \begin{itemize}
+        \item Compare the self-consistency method with state-of-the-art approaches on commonsense reasoning tasks.
+    \end{itemize}
+    \item \textbf{Publish Results:}
+    \begin{itemize}
+        \item Compile the findings into a comprehensive report or paper.
+        \item Share the results with the research community.
+    \end{itemize}
+\end{itemize}
+
+\section*{References}
+\begin{enumerate}
+    \item \textbf{Paper:} \url{https://arxiv.org/pdf/2203.11171v4}
+    \item \textbf{Dataset:} \url{https://paperswithcode.com/dataset/commonsenseqa}
+    \item \textbf{Codebase:} \url{https://github.com/codelion/optillm/blob/main/optillm/self_consistency.py}
+\end{enumerate}
+
+\end{document}
