@@ -3,6 +3,9 @@ import random
 from collections import Counter
 from datasets import load_dataset
 from together import Together
+# from dotenv import load_dotenv
+
+# load_dotenv()
 
 # Initialize Together client
 client = Together()
@@ -20,7 +23,7 @@ def format_prompt(question, choices):
 
 def get_response(prompt, temperature=0.0):
     response = client.chat.completions.create(
-        model="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=temperature
     )
@@ -40,6 +43,12 @@ def self_consistent_answer(question, choices, n_samples=3):
     return Counter(answers).most_common(1)[0][0],answers
 
 # Evaluate self-consistency
+self_consistency_accuracy = 0
+greedy_accuracy = 0
+difference = 0
+better = 0
+worse = 0
+
 for idx, item in enumerate(sampled_dataset, 1):
     print(f"\n--- Question {idx} ---")
     # print("Greedy Decode:")
@@ -52,18 +61,48 @@ for idx, item in enumerate(sampled_dataset, 1):
     # print(f"\nSelf-Consistency with {n} sample(s):")
     prediction, answers = self_consistent_answer(item["question"], item["choices"], n_samples=n)
     # print(f"Most common answer: {prediction}")
+    correct_answer = item["answerKey"]
+    print("Correct answer:")
+    print(correct_answer)
 
+    if correct_answer == greedy_answer[0]:
+        print("Greedy Correct")
+        greedy_accuracy += 1
+    else :
+        print("Greedy Incorrect")
+        print("Greedy Decode:")
+        print(greedy_answer[0])
+    
+    if correct_answer == prediction[0]:
+        print("Self-consistency Correct")
+        self_consistency_accuracy += 1
+    else :
+        print("Self-consistency Incorrect")
+        print("Self-consistency predict:")
+        print(prediction[0])
+    
     if greedy_answer.split('\n')[0][0] != prediction.split('\n')[0][0]:
         print("Answers Mismatch")
-        print("GReedy Decode:")
+        print("Greedy Decode:")
         print(greedy_answer)
         print("Self consistency with 3 paths")
-        print("Three Answers:")
-        print(answers[0])
-        print(answers[1])
-        print(answers[2])
+        # print("Three Answers:")
+        # print(answers[0])
+        # print(answers[1])
+        # print(answers[2])
         print("Prediction:")
         print(prediction)
-
+        difference += 1
+        if prediction[0] == correct_answer:
+            better += 1
+        if greedy_answer[0] == correct_answer:
+            worse += 1
     else:
         print("Answers match")
+
+print("--- Evaluation ---")
+print("self_consistency_accuracy ", self_consistency_accuracy, "%")
+print("greedy_accuracy ", greedy_accuracy, "%")
+print("difference ", difference, "%")
+print("better ", better, "%")
+print("worse ", worse, '%')

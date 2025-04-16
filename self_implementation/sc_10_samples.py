@@ -1,12 +1,15 @@
 import os
+from dotenv import load_dotenv
 from collections import Counter
 from datasets import load_dataset
 from together import Together
 
+load_dotenv()
+
 client = Together()
 
-# Set Together AI API Key
-os.environ["TOGETHERAI_API_KEY"] = os.getenv("TOGETHER_API_KEY")
+# # Set Together AI API Key
+# os.environ["TOGETHER_API_KEY"] = os.getenv("TOGETHER_API_KEY")
 
 # Load CommonsenseQA subset
 dataset = load_dataset("commonsense_qa", split="validation[:10]")
@@ -17,7 +20,7 @@ def format_prompt(question, choices):
 
 def get_response(prompt, temperature=0.7):
     response = client.chat.completions.create(
-        model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=temperature
     )
