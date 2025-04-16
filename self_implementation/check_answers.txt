@@ -1,0 +1,300 @@
+Llama-3.3-70B-Instruct-Turbo-Free: 100/100 accuracy
+--- Question 1 ---
+Answers match
+
+--- Question 2 ---
+Answers match
+
+--- Question 3 ---
+Answers match
+
+--- Question 4 ---
+Answers match
+
+--- Question 5 ---
+Answers match
+
+--- Question 6 ---
+Answers match
+
+--- Question 7 ---
+Answers match
+
+--- Question 8 ---
+Answers match
+
+--- Question 9 ---
+Answers match
+
+--- Question 10 ---
+Answers match
+
+--- Question 11 ---
+Answers match
+
+--- Question 12 ---
+Answers match
+
+--- Question 13 ---
+Answers match
+
+--- Question 14 ---
+Answers match
+
+--- Question 15 ---
+Answers match
+
+--- Question 16 ---
+Answers match
+
+--- Question 17 ---
+Answers match
+
+--- Question 18 ---
+Answers match
+
+--- Question 19 ---
+Answers match
+
+--- Question 20 ---
+Answers match
+
+--- Question 21 ---
+Answers match
+
+--- Question 22 ---
+Answers match
+
+--- Question 23 ---
+Answers match
+
+--- Question 24 ---
+Answers match
+
+--- Question 25 ---
+Answers match
+
+--- Question 26 ---
+Answers match
+
+--- Question 27 ---
+Answers match
+
+--- Question 28 ---
+Answers match
+
+--- Question 29 ---
+Answers match
+
+--- Question 30 ---
+Answers match
+
+--- Question 31 ---
+Answers match
+
+--- Question 32 ---
+Answers match
+
+--- Question 33 ---
+Answers match
+
+--- Question 34 ---
+Answers match
+
+--- Question 35 ---
+Answers match
+
+--- Question 36 ---
+Answers match
+
+--- Question 37 ---
+Answers match
+
+--- Question 38 ---
+Answers match
+
+--- Question 39 ---
+Answers match
+
+--- Question 40 ---
+Answers match
+
+--- Question 41 ---
+Answers match
+
+--- Question 42 ---
+Answers match
+
+--- Question 43 ---
+Answers match
+
+--- Question 44 ---
+Answers match
+
+--- Question 45 ---
+Answers match
+
+--- Question 46 ---
+Answers match
+
+--- Question 47 ---
+Answers match
+
+--- Question 48 ---
+Answers match
+
+--- Question 49 ---
+Answers match
+
+--- Question 50 ---
+Answers match
+
+--- Question 51 ---
+Answers match
+
+--- Question 52 ---
+Answers match
+
+--- Question 53 ---
+Answers match
+
+--- Question 54 ---
+Answers match
+
+--- Question 55 ---
+Answers match
+
+--- Question 56 ---
+Answers match
+
+--- Question 57 ---
+Answers match
+
+--- Question 58 ---
+Answers match
+
+--- Question 59 ---
+Answers match
+
+--- Question 60 ---
+Answers match
+
+--- Question 61 ---
+Answers match
+
+--- Question 62 ---
+Answers match
+
+--- Question 63 ---
+Answers match
+
+--- Question 64 ---
+Answers match
+
+--- Question 65 ---
+Answers match
+
+--- Question 66 ---
+Answers match
+
+--- Question 67 ---
+Answers match
+
+--- Question 68 ---
+Answers match
+
+--- Question 69 ---
+Answers match
+
+--- Question 70 ---
+Answers match
+
+--- Question 71 ---
+Answers match
+
+--- Question 72 ---
+Answers match
+
+--- Question 73 ---
+Answers match
+
+--- Question 74 ---
+Answers match
+
+--- Question 75 ---
+Answers match
+
+--- Question 76 ---
+Answers match
+
+--- Question 77 ---
+Answers match
+
+--- Question 78 ---
+Answers match
+
+--- Question 79 ---
+Answers match
+
+--- Question 80 ---
+Answers match
+
+--- Question 81 ---
+Answers match
+
+--- Question 82 ---
+Answers match
+
+--- Question 83 ---
+Answers match
+
+--- Question 84 ---
+Answers match
+
+--- Question 85 ---
+Answers match
+
+--- Question 86 ---
+Answers match
+
+--- Question 87 ---
+Answers match
+
+--- Question 88 ---
+Answers match
+
+--- Question 89 ---
+Answers match
+
+--- Question 90 ---
+Answers match
+
+--- Question 91 ---
+Answers match
+
+--- Question 92 ---
+Answers match
+
+--- Question 93 ---
+Answers match
+
+--- Question 94 ---
+Answers match
+
+--- Question 95 ---
+Answers match
+
+--- Question 96 ---
+Answers match
+
+--- Question 97 ---
+Answers match
+
+--- Question 98 ---
+Answers match
+
+--- Question 99 ---
+Answers match
+
+--- Question 100 ---
+Answers match

@@ -1,3 +1,4 @@
+meta-llama/Llama-3.3-70B-Instruct-Turbo-Free
 
 --- Question 1 ---
 Greedy Decode:
@@ -11,7 +12,7 @@ Choices:
 A. tropical forest
 B. oregon
 C. woods
-D. pet store
+D. pet storeW
 E. louisiana
 Answer with the correct letter. Give explaination in the next line.
 Answers:
