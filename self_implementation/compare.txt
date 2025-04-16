@@ -1,0 +1,213 @@
+
+--- Question 1 ---
+Greedy Decode:
+D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep snakes and other animals in enclosures for display and sale.
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: Where would one find a snake in a cage?
+Choices:
+A. tropical forest
+B. oregon
+C. woods
+D. pet store
+E. louisiana
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+The most likely place to find a snake in a cage would be a pet store, as pet stores often keep snakes and other animals in cages or enclosures for display and sale.
+------
+Most common answer: D
+The most likely place to find a snake in a cage would be a pet store, as pet stores often keep snakes and other animals in cages or enclosures for display and sale.
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: Where would one find a snake in a cage?
+Choices:
+A. tropical forest
+B. oregon
+C. woods
+D. pet store
+E. louisiana
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep snakes and other animals in cages or enclosures for display and sale.
+------
+------
+D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep and display various animals, including snakes, in cages or enclosures for people to view and potentially purchase.
+------
+Most common answer: D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep snakes and other animals in cages or enclosures for display and sale.
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: Where would one find a snake in a cage?
+Choices:
+A. tropical forest
+B. oregon
+C. woods
+D. pet store
+E. louisiana
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+This is because a pet store is a common place to find snakes kept in cages, as they are often sold as pets or displayed for educational purposes, whereas the other options are outdoor locations where snakes might be found in their natural habitats.
+------
+------
+D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep snakes and other animals in cages or enclosures for display and sale.
+------
+------
+D
+One would most likely find a snake in a cage at a pet store, as pet stores often keep snakes and other animals in enclosed cages for display and sale.
+------
+Most common answer: D
+This is because a pet store is a common place to find snakes kept in cages, as they are often sold as pets or displayed for educational purposes, whereas the other options are outdoor locations where snakes might be found in their natural habitats.
+
+--- Question 2 ---
+Greedy Decode:
+D
+You can find a snake in tall grass in a field, as fields often have tall grass and snakes are known to inhabit such areas, hiding and hunting among the grass blades.
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: Where can you find a snake in tall grass?
+Choices:
+A. tree
+B. in a jar
+C. pet shops
+D. feild
+E. tropical forest
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+You can find a snake in tall grass in a field, as fields often have tall grass and are a common habitat for many species of snakes, providing them with shelter, prey, and a suitable environment to thrive.
+------
+Most common answer: D
+You can find a snake in tall grass in a field, as fields often have tall grass and are a common habitat for many species of snakes, providing them with shelter, prey, and a suitable environment to thrive.
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: Where can you find a snake in tall grass?
+Choices:
+A. tree
+B. in a jar
+C. pet shops
+D. feild
+E. tropical forest
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+You can find a snake in tall grass in a field, as fields often have tall grass and are a common habitat for many species of snakes, providing them with shelter, food, and a place to hide.
+------
+------
+D
+The correct answer is "D. field" because snakes are often found in tall grass, which is typically a feature of fields, and they like to hide and hunt in such environments.
+------
+Most common answer: D
+You can find a snake in tall grass in a field, as fields often have tall grass and are a common habitat for many species of snakes, providing them with shelter, food, and a place to hide.
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: Where can you find a snake in tall grass?
+Choices:
+A. tree
+B. in a jar
+C. pet shops
+D. feild
+E. tropical forest
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+You can find a snake in tall grass in a field, as fields often have tall grass and snakes are known to inhabit such areas, hiding and hunting among the tall blades of grass.
+------
+------
+D
+You can find a snake in tall grass in a field, as fields often have tall grass and snakes are known to inhabit such areas, hiding and hunting among the grass blades.
+------
+------
+D
+This is because the question specifically mentions "tall grass", which is often found in fields, making it a likely habitat for snakes to hide and hunt.
+------
+Most common answer: D
+You can find a snake in tall grass in a field, as fields often have tall grass and snakes are known to inhabit such areas, hiding and hunting among the tall blades of grass.
+
+--- Question 3 ---
+Greedy Decode:
+D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: He used an umbrella while tanning, where was he likely?
+Choices:
+A. waves
+B. seattle
+C. suitcase
+D. beach
+E. jacket closet
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time outdoors, especially near the water or in sunny areas like a beach.
+------
+Most common answer: D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time outdoors, especially near the water or in sunny areas like a beach.
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: He used an umbrella while tanning, where was he likely?
+Choices:
+A. waves
+B. seattle
+C. suitcase
+D. beach
+E. jacket closet
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D. beach
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+------
+------
+D. beach
+He was likely at the beach because it is a common location for tanning, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+------
+Most common answer: D. beach
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: He used an umbrella while tanning, where was he likely?
+Choices:
+A. waves
+B. seattle
+C. suitcase
+D. beach
+E. jacket closet
+Answer with the correct letter. Give explaination in the next line.
+Answers:
+------
+D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+------
+------
+D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+------
+------
+D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.
+------
+Most common answer: D
+He was likely at the beach because it's a common place where people go to tan, and using an umbrella would provide shade from the sun, which is often desired when spending time at the beach.

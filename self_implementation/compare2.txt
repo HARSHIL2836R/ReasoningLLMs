@@ -1,0 +1,185 @@
+arcee_ai/arcee-spotlight
+
+
+--- Question 1 ---
+Greedy Decode:
+C
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: Where are you if your bieifcase is going through an x-ray machine?
+Choices:
+A. luggage store
+B. courtroom
+C. airport
+D. office building
+E. hand
+Answer with the correct letter.
+Answers:
+------
+C
+------
+Most common answer: C
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: Where are you if your bieifcase is going through an x-ray machine?
+Choices:
+A. luggage store
+B. courtroom
+C. airport
+D. office building
+E. hand
+Answer with the correct letter.
+Answers:
+------
+C
+------
+------
+C
+------
+Most common answer: C
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: Where are you if your bieifcase is going through an x-ray machine?
+Choices:
+A. luggage store
+B. courtroom
+C. airport
+D. office building
+E. hand
+Answer with the correct letter.
+Answers:
+------
+C
+------
+------
+C
+------
+------
+C
+------
+Most common answer: C
+
+--- Question 2 ---
+Greedy Decode:
+B
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: What is main benefit to exercising?
+Choices:
+A. losing weight
+B. healthy
+C. get in shape
+D. weight loss
+E. sweat
+Answer with the correct letter.
+Answers:
+------
+B
+------
+Most common answer: B
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: What is main benefit to exercising?
+Choices:
+A. losing weight
+B. healthy
+C. get in shape
+D. weight loss
+E. sweat
+Answer with the correct letter.
+Answers:
+------
+B
+------
+------
+B
+------
+Most common answer: B
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: What is main benefit to exercising?
+Choices:
+A. losing weight
+B. healthy
+C. get in shape
+D. weight loss
+E. sweat
+Answer with the correct letter.
+Answers:
+------
+B
+------
+------
+B
+------
+------
+B
+------
+Most common answer: B
+
+--- Question 3 ---
+Greedy Decode:
+A
+
+Self-Consistency with 1 sample(s):
+Prompt:
+Question: Where is one likely to find a brownstone?
+Choices:
+A. new york city
+B. subdivision
+C. ring
+D. hazleton
+E. live in
+Answer with the correct letter.
+Answers:
+------
+A
+------
+Most common answer: A
+
+Self-Consistency with 2 sample(s):
+Prompt:
+Question: Where is one likely to find a brownstone?
+Choices:
+A. new york city
+B. subdivision
+C. ring
+D. hazleton
+E. live in
+Answer with the correct letter.
+Answers:
+------
+A
+------
+------
+A
+------
+Most common answer: A
+
+Self-Consistency with 3 sample(s):
+Prompt:
+Question: Where is one likely to find a brownstone?
+Choices:
+A. new york city
+B. subdivision
+C. ring
+D. hazleton
+E. live in
+Answer with the correct letter.
+Answers:
+------
+A
+------
+------
+A
+------
+------
+A
+------
+Most common answer: A
