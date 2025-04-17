@@ -70,9 +70,7 @@ for idx, item in enumerate(sampled_dataset, 1):
     # print(f"Most common answer: {prediction}")
     correct_answer = item["answerKey"] 
     index = item['choices']['label'].index(item['answerKey'])
-    correct_answer =correct_answer + ". " + item['choices']['text'][index]    
-
-    df.loc[idx, 'A'] = correct_answer
+    df.loc[idx, 'A'] = correct_answer + ". " + item['choices']['text'][index]   
     # print("Correct answer:")
     # print(correct_answer)
 
