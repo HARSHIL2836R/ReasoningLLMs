@@ -1,0 +1,6 @@
+,Question,Answer Match Greedy,Answer Match Self-consistency,Correct Answer,Greedy Answer,Self Answer,Q,greedyA,selfA,A,greedyMatch,selfMatch,agree
+1,,,,,,,James loved to surf but he wasn't good at it. He would always do what?,"A
+
+Since James wasn't good at surfing, he would likely experience a lot of falls or crashes in the water, which is commonly referred to as ""wiping out."" This is a common experience for beginners or inexperienced surfers.","A. 
+
+As a beginner surfer who isn't good at it, James would likely experience a lot of falls or failures in the water, which is commonly referred to as ""wiping out"".",A. wipe out,False,False,True

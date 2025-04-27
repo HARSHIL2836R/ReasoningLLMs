@@ -137,3 +137,8 @@ observed that language models can sometimes generate incorrect or nonsensical re
 the StrategyQA example in Table 4, the two population numbers are not exactly correct), and further
 work is needed to better ground models’ rationale generations.
 
+
+
+
+## April 17
+Tried GPT2-XL but is not giving answers as instructed, it only extrapolates/extends/repeats given prompt.  
