@@ -1,0 +1,61 @@
+for n = 4
+
+--- Evaluation ---
+self_consistency_accuracy  73 %
+greedy_accuracy  77 %
+difference  9 %
+better  1 %
+worse  5 %
+
+
+for n = 6
+
+--- Evaluation ---
+self_consistency_accuracy  78 %
+greedy_accuracy  79 %
+difference  10 %
+better  4 %
+worse  5 %
+
+for n = 8           run-time = 17 min
+
+--- Evaluation ---
+self_consistency_accuracy  81 %
+greedy_accuracy  78 %
+difference  11 %
+better  6 %
+worse  3 %
+
+for n = 10         run-time = 20 min
+
+--- Evaluation 1 ---
+self_consistency_accuracy  75 %
+greedy_accuracy  78 %
+difference  10 %
+better  2 %
+worse  5 %
+
+--- Evaluation 2 ---
+self_consistency_accuracy  79 %
+greedy_accuracy  80 %
+difference  9 %
+better  2 %
+worse  3 %
+
+for n = 12         run-time = 25 min
+
+--- Evaluation ---
+self_consistency_accuracy  79 %
+greedy_accuracy  77 %
+difference  8 %
+better  3 %
+worse  1 %
+
+for n = 20        run-time = > 1 hour
+
+--- Evaluation ---
+self_consistency_accuracy  80 %
+greedy_accuracy  78 %
+difference  14 %
+better  7 %
+worse  5 %

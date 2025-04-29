@@ -3,16 +3,16 @@ import random
 from collections import Counter
 from datasets import load_dataset
 from together import Together
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 import pandas as pd
 
-# load_dotenv()
+load_dotenv()
 
 # Initialize Together client
 client = Together()
 
-# Set Together AI API Key
-os.environ["TOGETHERAI_API_KEY"] = os.getenv("TOGETHER_API_KEY")
+# # Set Together AI API Key
+# os.environ["TOGETHERAI_API_KEY"] = os.getenv("TOGETHER_API_KEY")
 
 # Load a random subset of 3 questions from the validation set
 dataset = load_dataset("commonsense_qa", split="validation")
@@ -56,56 +56,61 @@ df = pd.DataFrame(columns=["Q", "A", "greedyA", "selfA", "greedyMatch", "selfMat
 for idx, item in enumerate(sampled_dataset, 1):
     print(f"\n--- Question {idx} ---")
     df.loc[idx, 'Q'] = item["question"]
-    # print("Greedy Decode:")
+    print("Question:")
+    print(item["question"])
     greedy_answer = get_response(format_prompt(item["question"], item["choices"]), temperature=0.0)
     df.loc[idx, 'greedyA'] = greedy_answer
+    # print("Greedy Decode:")
     # print(greedy_answer)
 
     predictions = []
 
-    n = 4
+    n = 8
     # print(f"\nSelf-Consistency with {n} sample(s):")
     prediction, answers = self_consistent_answer(item["question"], item["choices"], n_samples=n)
     df.loc[idx, 'selfA'] = prediction
     # print(f"Most common answer: {prediction}")
     correct_answer = item["answerKey"] 
     index = item['choices']['label'].index(item['answerKey'])
-    df.loc[idx, 'A'] = correct_answer + ". " + item['choices']['text'][index]   
-    # print("Correct answer:")
-    # print(correct_answer)
+    df.loc[idx, 'A'] = correct_answer + ". " + item['choices']['text'][index] 
+
+    print("Correct answer:")
+    print(correct_answer + ". " + item['choices']['text'][index] )
 
     if correct_answer == greedy_answer[0]:
-        # print("Greedy Correct")
+        print("Greedy Correct")
         df.loc[idx, 'greedyMatch'] = True
         greedy_accuracy += 1
     else :
         df.loc[idx, 'greedyMatch'] = False
-        # print("Greedy Incorrect")
-        # print("Greedy Decode:")
-        # print(greedy_answer[0])
+        print("Greedy Incorrect")
+        print("Greedy Decode:")
+        index = item['choices']['label'].index(greedy_answer[0])
+        print(greedy_answer[0] + ". " + item['choices']['text'][index])
     
     if correct_answer == prediction[0]:
-        # print("Self-consistency Correct")
+        print("Self-consistency Correct")
         df.loc[idx, 'selfMatch'] = True
         self_consistency_accuracy += 1
     else :
         df.loc[idx, 'selfMatch'] = False
-    #     print("Self-consistency Incorrect")
-    #     print("Self-consistency predict:")
-    #     print(prediction[0])
+        print("Self-consistency Incorrect")
+        print("Self-consistency predict:")
+        index = item['choices']['label'].index(prediction[0])
+        print(prediction[0] + ". " + item['choices']['text'][index])
     
     if greedy_answer.split('\n')[0][0] != prediction.split('\n')[0][0]:
         df.loc[idx, "agree"] = False
-        # print("Answers Mismatch")
-        # print("Greedy Decode:")
-        # print(greedy_answer)
-        # print("Self consistency with 3 paths")
+        print("Answers Mismatch")
+        print("Greedy Decode:")
+        print(greedy_answer)
+        print("Self consistency with 3 paths")
         # print("Three Answers:")
         # print(answers[0])
         # print(answers[1])
         # print(answers[2])
         # print("Prediction:")
-        # print(prediction)
+        print(prediction)
         difference += 1
         if prediction[0] == correct_answer:
             better += 1
@@ -113,7 +118,7 @@ for idx, item in enumerate(sampled_dataset, 1):
             worse += 1
     else:
         df.loc[idx, 'agree'] = True
-        # print("Answers match")
+        print("Answers match")
     # df.to_csv("output.tsv", sep='\t')
     df.to_csv("output.csv")
 
