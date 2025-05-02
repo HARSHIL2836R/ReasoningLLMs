@@ -43,9 +43,9 @@ def get_response(client,prompt, temperature=0.0):
     )
     return response.choices[0].message.content.strip()
 
-def sc_most_common(client,question, choices, n_samples=3):
+def sc_most_common(client,question, choices, n_samples=3, temperature = 0.7):
     prompt = format_prompt(question, choices)
-    answers = [get_response(client,prompt, temperature=0.7) for _ in range(n_samples)]
+    answers = [get_response(client,prompt, temperature=temperature) for _ in range(n_samples)]
 
     return Counter(answers).most_common(1)[0][0],answers
 
