@@ -23,7 +23,7 @@ def setup(total_questions, API_KEY):
     dataset = load_dataset("commonsense_qa", split="validation")
     sampled_dataset = random.sample(list(dataset), total_questions)
 
-    csv_file_path = "mistral_7b_instruct_output.csv"
+    csv_file_path = "gemma_instruct_output.csv"
     if os.path.exists(csv_file_path):
         df = pd.read_csv(csv_file_path)
     else:
@@ -37,7 +37,7 @@ def format_prompt(question, choices):
 
 def get_response(client,prompt, temperature=0.0):
     response = client.chat.completions.create(
-        model="mistralai/Mistral-7B-Instruct-v0.2",
+        model="google/gemma-2b-it",
         messages=[{"role": "user", "content": prompt}],
         temperature=temperature
     )
@@ -45,7 +45,7 @@ def get_response(client,prompt, temperature=0.0):
 
 def sc_most_common(client,question, choices, n_samples=3, temperature = 0.7):
     prompt = format_prompt(question, choices)
-    answers = [get_response(client,prompt, temperature=temperature) for _ in range(n_samples)]
+    answers = [get_response(client,prompt, temperature=temperature+_*0.1) for _ in range(n_samples)]
 
     return Counter(answers).most_common(1)[0][0],answers
 

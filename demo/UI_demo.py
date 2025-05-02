@@ -29,18 +29,18 @@ def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, 
     )
     output1 = prediction
     combined_answers = '\n'.join(answers)
-    output2 = get_response(client, f"Combine these answers into a single answer without modifying the content:\n{combined_answers}")
+    output2 = get_response(client, f"Combine these explaination into a single explaination without modifying the content:\n{combined_answers}")
     output3 = greedy_answer
     return output1, output2, output3
 
 with gr.Interface(
     fn=process_question,
     inputs=[
-        gr.Textbox(label="Question", value="What is the capital of France?"),
-        gr.Textbox(label="Choice 1", value="Paris"),
-        gr.Textbox(label="Choice 2", value="London"),
-        gr.Textbox(label="Choice 3", value="Berlin"),
-        gr.Textbox(label="Choice 4", value="Madrid"),
+        gr.Textbox(label="Question", value="When people are overly drunk how do the seem to others?"),
+        gr.Textbox(label="Choice 1", value="disoriented"),
+        gr.Textbox(label="Choice 2", value="appear ridiculous"),
+        gr.Textbox(label="Choice 3", value="walk off"),
+        gr.Textbox(label="Choice 4", value="throw up"),
         gr.Slider(minimum=1, maximum=20, step=2, value=6, label="Number of Samples (optional)"),
         gr.Radio(choices=["Greedy", "Clustering"], label="Decoding Strategy", value="Clustering")
     ],
