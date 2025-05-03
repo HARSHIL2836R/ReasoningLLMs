@@ -4,12 +4,44 @@ from collections import Counter
 from datasets import load_dataset
 from together import Together
 import pandas as pd
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from dotenv import load_dotenv
 
-def hello():
-    print("hello")
+class Metrics :
+    def count_unique_paths(paths):
+        return len(set(paths))
+
+    def shannon_entropy(paths):
+        total = len(paths)
+        if total == 0:
+            return 0.0
+
+        freq = Counter(paths)
+        entropy = 0.0
+
+        for count in freq.values():
+            p = count / total
+            entropy -= p * np.log2(p)
+        
+        return entropy
+
+    def avg_cosine_distance(paths):
+        if len(paths) < 2:
+            return 0.0  # No pairs to compare
+
+        vectorizer = TfidfVectorizer()
+        tfidf_matrix = vectorizer.fit_transform(paths)
+        similarity_matrix = cosine_similarity(tfidf_matrix)
+
+        # Extract upper triangle of similarity matrix (excluding diagonal)
+        n = len(paths)
+        sim_scores = [
+            similarity_matrix[i][j]
+            for i in range(n) for j in range(i + 1, n)
+        ]
+        return np.mean(sim_scores)
 
 def setup(total_questions):
     "Returns Dataset, DataFrame to work on, Together AI Client"
@@ -171,7 +203,12 @@ def sc_with_clustering(client, question, choices, n_samples=3, threshold=0.7):
     prompt = format_prompt(question, choices)
     answers = [get_response(client, prompt, temperature=0.7) for _ in range(n_samples)]
     final_answer = cluster_and_majority_vote(answers, threshold=threshold)
-    return final_answer, answers
+    metrics = {
+        "unique_paths" : Metrics.count_unique_paths(answers),
+        "path_similarity" : Metrics.avg_cosine_distance(answers),
+        "diversity_score": Metrics.shannon_entropy(answers)
+    }
+    return final_answer, answers, metrics
 
 def sc_with_temperature_sampling(client, question, choices, temperatures=[0.3, 0.5, 0.7, 0.9, 1.1, 1.3]):
     """
@@ -189,5 +226,10 @@ def sc_with_temperature_sampling(client, question, choices, temperatures=[0.3, 0
     prompt = format_prompt(question, choices)
     answers = [get_response(client, prompt, temperature=temp) for temp in temperatures]
     most_common = Counter(answers).most_common(1)[0][0]
+    metrics = {
+        "unique_paths" : Metrics.count_unique_paths(answers),
+        "path_similarity" : Metrics.avg_cosine_distance(answers),
+        "diversity_score": Metrics.shannon_entropy(answers)
+    }
 
-    return most_common, answers
+    return most_common, answers, metrics

@@ -19,7 +19,7 @@ def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, 
     greedy_answer = get_response(client, prompt)
 
     if mode == "Clustering" :
-        prediction, answers = sc_with_clustering(
+        prediction, answers, metrics = sc_with_clustering(
             client,
             question,
             {
@@ -29,7 +29,7 @@ def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, 
             n_samples=n_samples,
         )
     else :
-        prediction, answers = sc_with_temperature_sampling(
+        prediction, answers, metrics = sc_with_temperature_sampling(
             client, 
             question,
             {
@@ -41,7 +41,9 @@ def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, 
     combined_answers = '\n'.join(answers)
     output2 = get_response(client, f"Combine these answers into a single answer without modifying the content:\n{combined_answers}")
     output3 = greedy_answer
-    return output1, output2, output3
+    metrics_str = "\n".join([f"{k}: {v:.4f}" for k, v in metrics.items()]) # Convert metrics to string or key-value pairs
+    output4 = metrics_str
+    return output1, output2, output3, output4
 
 with gr.Interface(
     fn=process_question,
@@ -51,16 +53,17 @@ with gr.Interface(
         gr.Textbox(label="Choice 2", value="London"),
         gr.Textbox(label="Choice 3", value="Berlin"),
         gr.Textbox(label="Choice 4", value="Madrid"),
-        gr.Slider(minimum=1, maximum=20, step=2, value=6, label="Number of Samples (optional)"),
+        gr.Slider(minimum=1, maximum=20, step=1, value=6, label="Number of Samples (optional)"),
         gr.Radio(choices=["Temperature", "Clustering"], label="Decoding Strategy", value="Clustering")
     ],
     outputs=[
         gr.Textbox(label="Self consistent Prediction"),
         gr.Textbox(label="Explanation"),
         gr.Textbox(label="Greedy Prediction"),
+        gr.Textbox(label="Metrics", lines=3)
     ],
     title="Question Processor",
     description="Enter a question and four choices to process.",
-    allow_flagging="never"
+    flagging_mode="never"
 ) as demo:
     demo.launch()
