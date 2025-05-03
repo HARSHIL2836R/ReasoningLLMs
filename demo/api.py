@@ -6,14 +6,16 @@ from together import Together
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from dotenv import load_dotenv
 
 def hello():
     print("hello")
 
-def setup(total_questions, API_KEY):
+def setup(total_questions):
     "Returns Dataset, DataFrame to work on, Together AI Client"
-    # Initialize Together client
-    os.environ["TOGETHER_API_KEY"] = API_KEY
+    # # Initialize Together client
+    # os.environ["TOGETHER_API_KEY"] = API_KEY
+    load_dotenv()
     client = Together()
 
     # Set Together AI API Key
@@ -23,7 +25,7 @@ def setup(total_questions, API_KEY):
     dataset = load_dataset("commonsense_qa", split="validation")
     sampled_dataset = random.sample(list(dataset), total_questions)
 
-    csv_file_path = "mistral_7b_instruct_output.csv"
+    csv_file_path = "llama_8b_instruct.csv"
     if os.path.exists(csv_file_path):
         df = pd.read_csv(csv_file_path)
     else:
@@ -38,6 +40,7 @@ def format_prompt(question, choices):
 def get_response(client,prompt, temperature=0.0):
     response = client.chat.completions.create(
         model="mistralai/Mistral-7B-Instruct-v0.2",
+        # model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=temperature
     )
@@ -95,7 +98,7 @@ def run_tests(sampled_dataset,df,self_consistent_answer):
         else:
             df.loc[idx, 'Approaches Agree'] = True
 
-        df.to_csv("mistral_7b_instruct_output.csv")
+        df.to_csv("llama_8b_instruct.csv")
 
     print("--- Evaluation ---")
     greedy_accuracy = df['Answer Match Greedy'].mean() * 100  # Percentage of correct greedy answers
@@ -152,7 +155,7 @@ def cluster_and_majority_vote(answers, threshold=0.7):
     return most_common_answer
 
 # Update the self-consistency function to use clustering
-def sc_with_clustering(question, choices, n_samples=3, threshold=0.7):
+def sc_with_clustering(client, question, choices, n_samples=3, threshold=0.7):
     """
     Self-consistency with clustering based on cosine similarity.
     t
@@ -166,6 +169,25 @@ def sc_with_clustering(question, choices, n_samples=3, threshold=0.7):
         str: The final answer after clustering and majority vote.
     """
     prompt = format_prompt(question, choices)
-    answers = [get_response(prompt, temperature=0.7) for _ in range(n_samples)]
+    answers = [get_response(client, prompt, temperature=0.7) for _ in range(n_samples)]
     final_answer = cluster_and_majority_vote(answers, threshold=threshold)
     return final_answer, answers
+
+def sc_with_temperature_sampling(client, question, choices, temperatures=[0.3, 0.5, 0.7, 0.9, 1.1, 1.3]):
+    """
+    Self-consistency approach using multiple temperature values for sampling.
+
+    Args:
+        question (str): The question to ask.
+        choices (dict): Dictionary with 'label' and 'text' for the answer choices.
+        temperatures (list): List of temperature values to use for sampling.
+
+    Returns:
+        str: Most common answer across temperature samples.
+        list: List of all generated answers.
+    """
+    prompt = format_prompt(question, choices)
+    answers = [get_response(client, prompt, temperature=temp) for temp in temperatures]
+    most_common = Counter(answers).most_common(1)[0][0]
+
+    return most_common, answers

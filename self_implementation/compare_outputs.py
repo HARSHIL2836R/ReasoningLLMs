@@ -58,6 +58,8 @@ for idx, item in enumerate(sampled_dataset, 1):
     df.loc[idx, 'Q'] = item["question"]
     print("Question:")
     print(item["question"])
+    print("choices:")
+    print(item["choices"])
     greedy_answer = get_response(format_prompt(item["question"], item["choices"]), temperature=0.0)
     df.loc[idx, 'greedyA'] = greedy_answer
     # print("Greedy Decode:")
@@ -65,7 +67,7 @@ for idx, item in enumerate(sampled_dataset, 1):
 
     predictions = []
 
-    n = 8
+    n = 6
     # print(f"\nSelf-Consistency with {n} sample(s):")
     prediction, answers = self_consistent_answer(item["question"], item["choices"], n_samples=n)
     df.loc[idx, 'selfA'] = prediction

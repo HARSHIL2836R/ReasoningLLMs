@@ -1,7 +1,7 @@
 from api import *
 import gradio as gr
 
-sampled_dataset, df, client = setup(100,"3116fd3668302432d738187aa87a1ef3d5f89559b73d736b02f31da487baebd0")
+sampled_dataset, df, client = setup(100)
 
 def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, mode="Clustering"):
     # Ensure question and choices are provided
@@ -16,17 +16,27 @@ def process_question(question, choice1, choice2, choice3, choice4, n_samples=6, 
             'label': ['A', 'B', 'C', 'D'],
             'text': [choice1, choice2, choice3, choice4]
         })
-    greedy_answer = get_response(client, prompt, temperature=0.7)
+    greedy_answer = get_response(client, prompt)
 
-    prediction, answers = sc_most_common(
-        client,
-        question,
-        {
-            'label': ['A', 'B', 'C', 'D'],
-            'text': [choice1, choice2, choice3, choice4]
-        },
-        n_samples=n_samples,
-    )
+    if mode == "Clustering" :
+        prediction, answers = sc_with_clustering(
+            client,
+            question,
+            {
+                'label': ['A', 'B', 'C', 'D'],
+                'text': [choice1, choice2, choice3, choice4]
+            },
+            n_samples=n_samples,
+        )
+    else :
+        prediction, answers = sc_with_temperature_sampling(
+            client, 
+            question,
+            {
+                'label': ['A', 'B', 'C', 'D'],
+                'text': [choice1, choice2, choice3, choice4]
+            }
+        )
     output1 = prediction
     combined_answers = '\n'.join(answers)
     output2 = get_response(client, f"Combine these answers into a single answer without modifying the content:\n{combined_answers}")
@@ -42,12 +52,12 @@ with gr.Interface(
         gr.Textbox(label="Choice 3", value="Berlin"),
         gr.Textbox(label="Choice 4", value="Madrid"),
         gr.Slider(minimum=1, maximum=20, step=2, value=6, label="Number of Samples (optional)"),
-        gr.Radio(choices=["Greedy", "Clustering"], label="Decoding Strategy", value="Clustering")
+        gr.Radio(choices=["Temperature", "Clustering"], label="Decoding Strategy", value="Clustering")
     ],
     outputs=[
-        gr.Textbox(label="Prediction"),
+        gr.Textbox(label="Self consistent Prediction"),
         gr.Textbox(label="Explanation"),
-        gr.Textbox(label="Greedy"),
+        gr.Textbox(label="Greedy Prediction"),
     ],
     title="Question Processor",
     description="Enter a question and four choices to process.",
