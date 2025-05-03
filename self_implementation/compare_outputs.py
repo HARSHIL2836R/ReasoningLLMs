@@ -16,7 +16,7 @@ client = Together()
 
 # Load a random subset of 3 questions from the validation set
 dataset = load_dataset("commonsense_qa", split="validation")
-random.seed(10)
+random.seed(0)
 sampled_dataset = random.sample(list(dataset), 100)
 
 def format_prompt(question, choices):
@@ -43,6 +43,12 @@ def self_consistent_answer(question, choices, n_samples=3):
         # print("------")
 
     return Counter(answers).most_common(1)[0][0],answers
+def sc_with_temperature_sampling(question, choices, temperatures=[0.3, 0.5, 0.7, 0.9, 1.1, 1.3]):
+    prompt = format_prompt(question, choices)
+    answers = [get_response(prompt, temperature=temp) for temp in temperatures]
+    most_common = Counter(answers).most_common(1)[0][0]
+
+    return most_common, answers
 
 # Evaluate self-consistency
 self_consistency_accuracy = 0
@@ -69,7 +75,9 @@ for idx, item in enumerate(sampled_dataset, 1):
 
     n = 6
     # print(f"\nSelf-Consistency with {n} sample(s):")
-    prediction, answers = self_consistent_answer(item["question"], item["choices"], n_samples=n)
+    # prediction, answers = self_consistent_answer(item["question"], item["choices"], n_samples=n)
+    prediction, answers = sc_with_temperature_sampling(item["question"], item["choices"], temperatures=[0.3, 0.5, 0.7, 0.9, 1.1, 1.3])
+
     df.loc[idx, 'selfA'] = prediction
     # print(f"Most common answer: {prediction}")
     correct_answer = item["answerKey"] 
@@ -98,8 +106,11 @@ for idx, item in enumerate(sampled_dataset, 1):
         df.loc[idx, 'selfMatch'] = False
         print("Self-consistency Incorrect")
         print("Self-consistency predict:")
-        index = item['choices']['label'].index(prediction[0])
-        print(prediction[0] + ". " + item['choices']['text'][index])
+        try:
+            index = item['choices']['label'].index(prediction[0]) 
+            print(prediction[0] + ". " + item['choices']['text'][index])
+        except:
+            print(prediction)
     
     if greedy_answer.split('\n')[0][0] != prediction.split('\n')[0][0]:
         df.loc[idx, "agree"] = False

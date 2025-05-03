@@ -61,5 +61,6 @@ with gr.Interface(
     ],
     title="Question Processor",
     description="Enter a question and four choices to process.",
+    allow_flagging="never"
 ) as demo:
     demo.launch()

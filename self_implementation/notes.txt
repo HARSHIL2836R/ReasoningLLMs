@@ -1,3 +1,12 @@
+for n = 1
+
+--- Evaluation ---
+self_consistency_accuracy  72 %
+greedy_accuracy  70 %
+difference  9 %
+better  4 %
+worse  2 %
+
 for n = 4
 
 --- Evaluation ---

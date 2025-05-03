@@ -1,0 +1,67 @@
+temp = [0.3]
+--- Evaluation ---
+self_consistency_accuracy  74 %
+greedy_accuracy  71 %
+difference  8 %
+better  4 %
+worse  1 %
+
+temp = [0.3, 0.5]
+--- Evaluation ---
+self_consistency_accuracy  65 %
+greedy_accuracy  68 %
+difference  7 %
+better  1 %
+worse  4 %
+
+--- Evaluation ---
+self_consistency_accuracy  67 %
+greedy_accuracy  69 %
+difference  7 %
+better  2 %
+worse  4 %
+
+temp = [0.3, 0.5, 0.7]
+--- Evaluation ---
+self_consistency_accuracy  69 %
+greedy_accuracy  71 %
+difference  6 %
+better  1 %
+worse  3 %
+
+--- Evaluation ---
+self_consistency_accuracy  77 %
+greedy_accuracy  72 %
+difference  6 %
+better  5 %
+worse  0 %
+
+temp = [0.3, 0.5, 0.7, 0.9]
+--- Evaluation ---
+self_consistency_accuracy  70 %
+greedy_accuracy  71 %
+difference  8 %
+better  2 %
+worse  3 %
+
+--- Evaluation ---
+self_consistency_accuracy  69 %
+greedy_accuracy  72 %
+difference  4 %
+better  0 %
+worse  3 %
+
+temp = [0.3, 0.5, 0.7, 0.9, 1.1]
+--- Evaluation ---
+self_consistency_accuracy  73 %
+greedy_accuracy  69 %
+difference  8 %
+better  5 %
+worse  1 %
+
+--- Evaluation ---
+self_consistency_accuracy  71 %
+greedy_accuracy  72 %
+difference  6 %
+better  2 %
+worse  3 %
